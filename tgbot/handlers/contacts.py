@@ -19,3 +19,9 @@ photo = FSInputFile("tgbot/logo.png")
 async def contacts(callback: types.CallbackQuery):
     await callback.answer()
     await callback.message.answer_photo(photo, "Our social contacts:", reply_markup=social())
+
+
+@contacts_router.callback_query(F.data == "whatsapp")
+async def whats(callback: types.CallbackQuery):
+    await callback.message.answer("Whats app number: +33762354721658")
+    await callback.answer()
